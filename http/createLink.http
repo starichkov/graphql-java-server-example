@@ -1,0 +1,12 @@
+POST http://localhost:8080/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation createLink($url: String!, $desc: String!){createLink(url: $url, description: $desc) { url, description } } ",
+  "variables": {
+    "url": "http://dot.com",
+    "desc": "Dot Com"
+  }
+}
+
+###
