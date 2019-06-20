@@ -1,4 +1,4 @@
-GET http://localhost:8080/graphql?query={allLinks{id, url, description}}
+GET http://localhost:8080/graphql?query={allLinks{url, createdAt}}
 Accept: */*
 Cache-Control: no-cache
 

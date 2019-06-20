@@ -1,7 +1,10 @@
+scalar DateTime
+
 type Link {
   id: ID!
   url: String!
   description: String!
+  createdAt: DateTime
 }
 
 type Query {

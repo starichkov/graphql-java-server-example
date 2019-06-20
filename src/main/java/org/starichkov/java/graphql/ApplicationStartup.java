@@ -2,7 +2,6 @@ package org.starichkov.java.graphql;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -15,7 +14,6 @@ import org.starichkov.java.graphql.type.Link;
  * @since 19.06.2019 20:14
  */
 @Component
-@Slf4j
 public class ApplicationStartup implements ApplicationListener<ApplicationReadyEvent> {
 
   private final LinkRepository linkRepository;
@@ -27,7 +25,7 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
   @Override
   public void onApplicationEvent(ApplicationReadyEvent event) {
-    log.info(event.toString());
+    linkRepository.deleteAll();
 
     Collection<Link> links = new LinkedList<>();
     links.add(new Link("http://howtographql.com", "Your favorite GraphQL page"));

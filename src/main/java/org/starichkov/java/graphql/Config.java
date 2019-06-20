@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.starichkov.java.graphql.resolver.Mutation;
 import org.starichkov.java.graphql.resolver.Query;
+import org.starichkov.java.graphql.type.Scalars;
 
 /**
  * @author Vadim Starichkov
@@ -29,6 +30,7 @@ public class Config {
     return SchemaParser.newParser()
         .file("schema.graphqls")
         .resolvers(query, mutation)
+        .scalars(Scalars.dateTime)
         .build()
         .makeExecutableSchema();
   }

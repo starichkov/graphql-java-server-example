@@ -1,5 +1,6 @@
 package org.starichkov.java.graphql.type;
 
+import java.time.LocalDateTime;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +18,7 @@ public class Link {
 
   private String url;
   private String description;
+  private LocalDateTime createdAt;
 
   public Link() {
   }
@@ -24,5 +26,6 @@ public class Link {
   public Link(String url, String description) {
     this.url = url;
     this.description = description;
+    this.createdAt = LocalDateTime.now();
   }
 }
